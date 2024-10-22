@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BookWorld - Cart</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="header">
+            <div class="img-panel">
+                <a href="/index"><img src="95f8588d6469a16271ea2d2fad419d00.png" /></a>
+            </div>
+            <div class="text-panel">
+                <div class="left-side">
+                    <div class="static text">
+                        <h1>BookWorld</h1>
+                        <p>Open the eyes, open the mind.</p>
+                    </div>
+                    <div class="var text">
+                        <!-- <p><span class="page-type">Account Registration</span><br>All fields required</p> -->
+                        <div class="userInfoBox">
+                            <div id="nametab">Name: <%= nametab %></div>
+                            <div id="idtab">ID: <%= idtab %></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-panel">
+                <div class="nav-menu">
+
+                    <a href="javascript:void(0);" class="icon" onclick="myNavMenu()" onclick="myNavMenu2()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+
+                    <div id="nav-links">
+                        <a href="/catalog">Catalog</a>
+                        <a href="/logout">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div><p>Note: Refresh page to see changes</p></div>
+            <div id="bookContainer">
+                <% cartData.forEach((record, i) => { %>
+                    <div class="col-4" id="book<%= i + 1 %>">
+                        <div id="book<%= i + 1 %>-info">
+                            <div id="book<%= i + 1 %>-num">
+                            </div>
+                            <div id="book<%= i + 1 %>-image">
+                    
+                                <img src="<%= record.path %>" />
+                            </div>
+                            <div id="book<%= i + 1 %>-name">
+                                <%= record.name %>
+                            </div>
+                            <div id="book<%= i + 1 %>-author">
+                                <%= record.author %>
+                            </div>
+                            <div id="book<%= i + 1 %>-price">
+                                $<%= record.price %>
+                            </div>
+                        </div>
+                        <form action='/removeBook/<%=record.imgcode%>' method="get">
+                            <button type="submit" class="remcart">Remove from Cart</button>
+                        </form>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <script src="./clientside/script.js" async defer></script>
+        <script>
+        </script>
+    </body>
+</html>

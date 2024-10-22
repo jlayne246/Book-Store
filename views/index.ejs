@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BookWorld - Login</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="header">
+            <div class="img-panel">
+                <a href="/index"><img src="95f8588d6469a16271ea2d2fad419d00.png" /></a>
+            </div>
+            <div class="text-panel">
+                <div class="left-side">
+                    <div class="static text">
+                        <h1>BookWorld</h1>
+                        <p>Open the eyes, open the mind.</p>
+                    </div>
+                    <div class="var text">
+                        <p><span class="page-type">User Sign In</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-panel">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="content" id="signinbox">
+            <div id="countdown"></div>
+            <div class="label" id="indexLabel">
+                
+                <form action="/index" method="post">
+                    <div>
+                        <label for="idNo2">ID: </label>
+                        <input type="text" id="idNo2" name="idNo2" <% if (disableInput) { %>disabled<% } %>><br>
+                        <span id="idError" style="color: red"><%= Error %></span><br><br>
+                    </div>
+                    <div>
+                        <label for="pswrd">Password: </label>
+                        <input type="text" id="pswrd" name="pswrd" <% if (disableInput) { %>disabled<% } %>><br>
+                        <span id="pwdError"></span><br>
+                    </div>
+                    <div class="button-1">
+                        <input type="submit" id="submit" value="Sign In" onclick="checkUser(storeData(StoreID(), StorePWD()))">
+                    </div>
+                    <div class="pwd-links">
+                        <a href="/index" id="fp">Forgot Password</a>
+                        <a href="/registration_send" id="su" action="/registration_send" method="get">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+    </div>
+        <script>
+
+            function StoreID() {
+                iD = document.getElementById("idNo2").value;
+                console.log(iD);
+                
+                return iD;
+            }
+
+            function StorePWD() {
+                pWD = document.getElementById("pswrd").value;
+                console.log(pWD);
+
+                return pWD;
+            }
+
+            function storeData(username, password) {
+                console.log("username: " + username + ", password: " + password);
+                let loginData = {
+                    username: username,
+                    password: password
+                }
+
+                return loginData
+            }
+
+            if (<%= disableInput %>) {
+                    // Set the time for the countdown in seconds
+                var countdownSeconds = 12;
+
+                // Set the date we're counting down to
+                var countDownDate = new Date().getTime() + countdownSeconds * 1000;
+
+                // Update the countdown every 1 second
+                var x = setInterval(function() {
+                    // Get the current date and time
+                    var now = new Date().getTime();
+
+                    // Calculate the remaining seconds
+                    var seconds = Math.floor((countDownDate - now) / 1000);
+
+                    // Display the countdown in the "countdown" div
+                    document.getElementById("countdown").innerHTML = "Time until you can try again: " + seconds + "s";
+
+                    // If the countdown is over, display a message
+                    if (seconds <= 0) {
+                        clearInterval(x);
+                        document.getElementById("countdown").innerHTML = "Timeout Over! Click <a href=\"/\">Here</a> to try again!";
+                    }
+                }, 1200);
+            }
+
+
+
+            //checkIdno(StoreID()); checkPassword(StorePWD())
+        </script>
+        <script src="./clientside/signin.js" async defer></script>
+        <!-- <script type="module" src="./mongodb_functions copy.mjs"></script> -->
+    </body>
+</html>

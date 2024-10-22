@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BookWorld - Login Info</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="img-panel">
+                <a href="/index"><img src="./95f8588d6469a16271ea2d2fad419d00.png" /></a>
+            </div>
+            <div class="text-panel">
+                <div class="left-side">
+                    <div class="static text" id="main-static">
+                        <h1>BookWorld</h1>
+                        <p>Open the eyes, open the mind.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-panel">
+                <div class="nav-menu">
+
+                    <a href="javascript:void(0);" class="icon" onclick="myNavMenu()" onclick="myNavMenu2()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+
+                    <div id="nav-links">
+                        <a href="cart.html">My Cart</a>
+                        <a onclick="logOut()">Log Out</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="login-container">
+                <p>Please record the information to access your account. (If the info seems incorrect, please refresh page)</p>
+
+                <div class="info">
+                    <div id="logID">
+                        User ID: <%= logID %>
+                    </div>
+                    <div id="logPwd">
+                        Password: <%= logPwd %>
+                    </div>
+                    <!-- Use document write from JS -->
+                </div>
+            </div>
+            <div class="signin">
+                <form action='/logininfo' method="post">
+                    <input type="submit" id="submit" value="Sign In">
+                </form>
+            </div>
+        </div>
+        <script src="./clientside/script.js" async defer></script>
+        <script>
+        </script>
+    </body>
+</html>

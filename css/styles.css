@@ -1,0 +1,452 @@
+/*For unversal box-sizing to prep grid. Place nothing else here*/
+* {
+	box-sizing: border-box;
+}
+
+/*To set row property for grid*/
+.row::after
+{
+	content: "";
+	clear: both;
+	display: table;
+}
+
+/*For Mobile*/
+[class *= "col"]{
+    width: 100%;
+}
+
+/*For Tablet*/
+@media only screen and (min-width: 600px) {
+		[class*="col-"] {
+        float: left;
+        padding: 15px;
+    }
+
+    .col-m-1 {width: 8.33%;}
+    .col-m-2 {width: 16.66%;}
+    .col-m-3 {width: 25%;}
+    .col-m-4 {width: 33.33%;}
+    .col-m-5 {width: 41.66%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 58.33%;}
+    .col-m-8 {width: 66.66%;}
+    .col-m-9 {width: 75%;}
+    .col-m-10 {width: 83.33%;}
+    .col-m-11 {width: 91.66%;}
+    .col-m-12 {width: 100%;}
+}
+
+/*For PC*/
+@media only screen and (min-width: 768px) {
+    [class*="col-"] {
+        float: left;
+        padding: 15px;
+    }
+
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+
+/*Set base document fonts and backgrounds here*/
+html {
+    /*background-color: white;*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Assign to div with class "header" and provide at minimum a bg colour and padding*/
+.header {
+    background-color: #ff8c69;
+    padding: 0.5%;
+    margin-bottom: 15px;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+@media (max-width: 800px) {
+    .header {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .header > .img-panel {
+        width: 100%;
+        margin-right: auto;
+    }
+    
+    .header > .text-panel {
+        /* width: 100%; */
+        display: none;
+    }
+    
+    .header > .margin-panel {
+        width: 100%;
+        float: right;
+    }
+}
+
+.header > .img-panel {
+    width: 20%;
+}
+
+.header > .text-panel {
+    width: 60%;
+}
+
+.header > .margin-panel {
+    width: 20%;
+}
+
+
+
+.header > div > a > img {
+    /*width: 50px;*/
+
+    width: 100%;
+    
+    /* margin-top: auto;
+    margin-bottom: auto;*/
+    
+}
+
+.header > div > div > .text {
+    text-align: center;
+}
+
+.header > div > div > .var {
+    /* font-weight: bold; */
+    margin-top: 80px;
+}
+
+.header > div > div > .left-side {
+    width: 50%;
+    text-align: center;
+}
+
+
+/*Assigned to main content area as div with class "content", give some margin at the top for space*/
+.content {
+    margin-top: 50px;
+    align-self: center;
+    text-align: center;
+}
+
+.form-container {
+    /* text-align: center; */
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin:auto;
+    /* border: 1px solid #ccc; */
+}
+
+@media (max-width: 767px) {
+    .left-margin-panel {
+        /* width: 30%; */
+    }
+    
+}
+
+.left-margin-panel {
+    /* width: 45%; */
+    /* border: 1px solid #ccc; */
+}
+
+/* #formbox {
+    width: 75%;
+    text-align: left;
+} */
+
+.label {
+    text-align: left;
+    align-content: center;
+    align-items: center;
+}
+
+#indexLabel {
+    width: 100%;
+    text-align: center;
+}
+
+/* .label > div > label {
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+} */
+
+.label > form > div > label {
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+}
+
+/* .label > #telbox > #shalf {
+    width: 5px;
+}
+
+.label > #telbox > #tel {
+    width: 50px;
+}
+
+.label > #telbox > #tel2 {
+    width: 113.5px;
+} */
+
+.label > form > #telbox > #shalf {
+    width: 5px;
+}
+
+.label > form > #telbox > #tel {
+    width: 50px;
+}
+
+.label > form > #telbox > #tel2 {
+    width: 113.5px;
+}
+
+#selectParish {
+    width: 204px;
+    /* border: 1px solid black; */
+}
+
+.page-type {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.button {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.button > #submit {
+    background-color: #071f35;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 16px;
+    margin: 6px;
+    width: 100px;
+}
+
+.signin > form > #submit {
+    background-color: #071f35;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 16px;
+    margin: 6px;
+    width: 100px;
+}
+
+#submit:hover {
+    background-color: #24496b;
+    color:white;
+}
+
+#submit:active {
+    background-color: white;
+    color: black;
+}
+
+.button > #cancel {
+    background-color: #071f35;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 16px;
+    margin: 6px;
+    width: 100px;
+}
+
+#cancel:hover {
+    background-color: #24496b;
+    color:white;
+}
+
+#cancel:active {
+    background-color: white;
+    color: black;
+}
+
+/*For login info page*/
+
+.content > .login-container {
+    border: 1px solid gray;
+    margin-bottom: 10px;
+}
+
+/*For hamburger menu*/
+
+@media (max-width: 800px) {
+    .nav-menu {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: auto;
+        justify-content: right;
+        border: 1px solid black;
+    }
+    
+    .nav-menu > a.icon {
+        float: right;
+        text-align: right;
+        font-size: 30px;
+        color: black;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #nav-links {
+        width: 100%;
+    }
+
+    #nav-links > a {
+        color: black;
+        text-decoration: none;
+        padding: 0;
+        font-size: 17px;
+        display: hidden;
+    }
+}
+
+.nav-menu {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+#nav-links {
+    overflow: hidden;
+    background-color: white;
+    position: relative;
+    display: none;
+}
+
+#nav-links > a {
+    color: black;
+    text-decoration: none;
+    padding: 14px;
+    font-size: 17px;
+    display: block;
+}
+
+.nav-menu > a.icon {
+    text-align: right;
+    font-size: 30px;
+    color: black;
+    
+}
+
+#nav-links > a:hover {
+    background-color: black;
+    color: white;
+}
+
+/*For login info box*/
+
+.info {
+    margin: 15px;
+}
+
+.pwd-links {
+    margin-top: 25px;
+}
+
+.pwd-links > a {
+    margin: 15px;
+}
+
+/*For user info box */
+
+.userInfoBox {
+    padding: 5px;
+}
+
+/* Catalog */
+
+.remcart, .addcart {
+    padding:8px; 
+    border: 1px solid black; 
+    border-radius: 5px;
+    background-color: #071f35; 
+    color: white;
+    margin: 5px;
+    margin-bottom: 8px;
+}
+
+.remcart:hover, .addcart:hover {
+    background-color: #24496b;
+    color:white;
+}
+
+.remcart:active, .addcart:active {
+    background-color: white;
+    color: black;
+}
+
+a:visited {
+    color: blue;
+}
+
+#parish-dd {
+    display: flex;
+    flex-direction: row;
+}
+
+#parish-ddbox > select {
+    width: 177px;
+}
+
+.sign-in > a { 
+    text-decoration: none;
+}
+
+.button-1 {
+    /* margin-top: 25px; */
+    /* display: flex;
+    flex-direction: column; */
+    text-align: center;
+}
+
+.button-1 > #submit {
+    background-color: #071f35;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 16px;
+    margin: 6px;
+    width: 100px;
+}
+
+.button-1 > a {
+    text-decoration: underline;
+    color: blue;
+}
+
+.button-1 > a:hover {
+    text-decoration: underline;
+    color: blue;
+}

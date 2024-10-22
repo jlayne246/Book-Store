@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BookWorld - Registration</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="img-panel">
+                <a href="/index"><img src="95f8588d6469a16271ea2d2fad419d00.png" /></a>
+            </div>
+            <div class="text-panel">
+                <div class="left-side">
+                    <div class="static text">
+                        <h1>BookWorld</h1>
+                        <p>Open the eyes, open the mind.</p>
+                    </div>
+                    <div class="var text">
+                        <p><span class="page-type">Account Registration</span><br>All fields required</p>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-panel">
+                &nbsp;
+            </div>
+        </div>
+
+        
+
+        <div class="content" id="formbox">
+            <div><p>Note: Refresh page if you don't see parishes in dropdown</p></div>
+                <div class="form-container">
+                    <div class="left-margin-panel">&nbsp;</div>
+                    <div class="label">
+                        <form action="/registration_send" method="post">
+                            <div id="idBox">
+                                <label for="idNo" style="font-weight: bold">ID: </label>
+                                <input type="text" id="idNo" name="idNo">
+                                <span id="idError"></span><br><br>
+                            </div>
+                            <div>
+                                <label for="fname" style="font-weight: bold">First Name: </label>
+                                <input type="text" id="fname" name="fname">
+                                <span id="fnameError"></span><br><br>
+                            </div>
+                            <div>
+                                <label for="lname" style="font-weight: bold">Last Name: </label>
+                                <input type="text" id="lname" name="lname">
+                                <span id="lnameError"></span><br><br>
+                            </div>
+                            <div>
+                                <label for="email" style="font-weight: bold">Email: </label>
+                                <input type="email" id="email" name="email">
+                                <span id="emailError"></span><br><br>
+                            </div>
+                            <div id="telbox">
+                                <label for="tel">Telephone: </label>
+                                <input type="text" id="tel" name="tel" placeholder="XXX">
+                                <label for="-" id="shalf">-</label>
+                                <input type="text" id="tel2" name="tel2" placeholder="XXXX">
+                                <span id="telError"></span><br><br>
+                            </div>
+                            <div>
+                                <label for="address1">Address 1:</label>
+                                <input type="text" id="address1" name="address1">
+                                <span id="addrError"></span><br><br>
+                                <!-- <span id="addrError"></span><br><br> -->
+                            </div>
+                            <div>
+                                <label for="address2">Address 2:</label>
+                                <input type="text" id="address2" name="address2">
+                                <span id="addrError2"></span><br><br>
+                                <!-- <span id="addrError2></span><br><br> -->
+                            </div>
+                            <div id="parish-dd">
+                                <div id="selectParish"><label for="selectParish">Parish: </label></div>
+                                    <div id="parish-ddbox"><%= parishes %></div>
+                                <span></span><br><br>
+                            </div>
+                            <div class="button">
+                                <input type="submit" id="submit" value="Register" onclick="newUser(Store())">
+                                <input type="button" id="cancel" value="Cancel">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+
+        <script>
+            function Store() {
+                id = document.getElementById('idNo').value;
+                firstName = document.getElementById('fname').value;
+                lastName = document.getElementById('lname').value;
+                emailText = document.getElementById('email').value;
+                tel = document.getElementById('tel').value + '-' + document.getElementById('tel2').value;
+                address1 = document.getElementById('address1').value;
+                address2 = document.getElementById('address2').value;
+                parish = document.getElementsByName('parishId').value
+
+                console.log("Data to be stored: " + id, firstName, lastName, emailText, tel, address1, address2, parish);
+
+                var formData = {
+                    "id":id,
+                    "firstName":firstName,
+                    "lastName":lastName,
+                    "email":emailText,
+                    "tel": tel,
+                    "address1": address1,
+                    "address2": address2,
+                    "parish": parish,
+                    "password": "",
+                }; 
+
+                return formData;
+            }
+        </script>
+        <script src="./clientside/validations_check.js" async defer></script>
+    </body>
+</html>
